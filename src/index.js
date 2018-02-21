@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+// import Board from './Board.js';
+// import Game from './Game.js';
 
 
 function Square(props){
@@ -48,10 +50,13 @@ class Board extends React.Component {
   render() {
     const winner = calculateWinner(this.state.squares);
     let status;
-    if (winner){
-      status = 'Winner: ' + winner;
+    if (winner === 'X'){
+      console.log(winner);
+      status = 'Winner: Player 1';
+    } else if (winner === 'O') {
+      status = 'Winner: Player 2';
     } else {
-      status = 'Next Player: ' + (this.state.xIsNext ? 'X' : 'O');
+      status = 'Next Player: ' + (this.state.xIsNext ? 'Player 1' : 'Player 2');
     }
 
     return (
@@ -86,7 +91,7 @@ class Game extends React.Component {
         </div>
         <div className="game-info">
           <div>{/* status */}</div>
-          <ol>{/* TODO */}</ol>
+          <ol>{/*  */}</ol>
         </div>
       </div>
     );
