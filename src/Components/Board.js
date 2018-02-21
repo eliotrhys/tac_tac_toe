@@ -17,12 +17,13 @@ class Board extends React.Component {
     if(calculateWinner(squares) || squares[i]){
       return;
     }
-    squares[i] = this.state.xIsNext ? <img src= {require('./happy.png')} width='40%'/> : <img src= {require('./sad.png')} width='40%'/>;
+    squares[i] = this.state.xIsNext ? <img src= {require('./X.png')} width='100%' alt="player1"/> : <img src= {require('./O.png')} width='100%' alt="player2"/>;
+    // squares[i] = this.state.xIsNext ? "X" : "O";
     this.setState({
       squares: squares,
       xIsNext: !this.state.xIsNext,
     }
-    );
+    )
   }
 
   renderSquare(i) {
@@ -37,10 +38,13 @@ class Board extends React.Component {
   render() {
     const winner = calculateWinner(this.state.squares);
     let status;
-    if (winner){
-      status = 'Winner: ' + winner;
+    console.log(winner);
+    if (winner === "X"){
+      status = 'Winner: Player 1';
+    } else if (winner === 'O'){
+      status = 'Winner: Player 2';
     } else {
-      status = 'Next Player: ' + (this.state.xIsNext ? 'X' : 'O');
+      status = 'Next Player: ' + (this.state.xIsNext ? 'Player 1' : 'Player 2');
     }
 
     return (
@@ -65,6 +69,10 @@ class Board extends React.Component {
     );
   }
 }
+
+// function checkImage(){
+//   if()
+// }
 
 
 function calculateWinner(squares) {
