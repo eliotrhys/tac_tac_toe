@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import Board from './Board.js';
+import Board from '../Components/Board.js';
 
 class Game extends React.Component {
   render() {
@@ -9,8 +9,6 @@ class Game extends React.Component {
           <Board />
         </div>
         <div className="game-info">
-          <div>{/* status */}</div>
-          <ol>{/* TODO */}</ol>
         </div>
       </div>
     );

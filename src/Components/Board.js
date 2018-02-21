@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+import Square from './Square';
+import CalculateWinner from './CalculateWinner';
 
 class Board extends React.Component {
 
